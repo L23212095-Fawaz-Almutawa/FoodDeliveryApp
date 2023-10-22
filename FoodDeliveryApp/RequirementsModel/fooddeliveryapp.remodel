@@ -1,0 +1,459 @@
+UseCaseModel FoodDeliveryApp {
+
+	UC::pay
+	UC::showOrderDetails
+	UC::trackOrder extend cancelOrder, login
+	UC::reviews
+	UC::orderRequest include showOrderDetails definedBySSD(OrderRequestSSD) relatedService(OrderRequestService)
+	UC::contact
+	UC::updateMenu definedBySSD(UpdateMenuSSD) relatedService(UpdateMenuService)
+	UC::trackOrderProfiles definedBySSD(TrackOrderProfilesSSD) relatedService(TrackOrderProfilesService)
+	UC::browseMenu
+	UC::cancelOrder
+	UC::login
+	UC::placeOrder include login, pay, showOrderDetails, browseMenu, cancelOrder definedBySSD(PlaceOrderSSD) relatedService(PlaceOrderService)
+	UC::register
+
+	Actor Customer {
+		pay
+		trackOrder
+		browseMenu
+		placeOrder
+		cancelOrder
+		login
+		register
+		contact
+	}
+
+	Actor Delivery_Driver {
+		orderRequest
+		contact
+	}
+
+	Actor Customer_Service_Agent {
+		contact
+		trackOrderProfiles
+	}
+
+	Actor Restaurant_Manager {
+		updateMenu
+		reviews
+		showOrderDetails
+		contact
+	}
+
+	Interaction OrderRequestSSD {
+
+		[Participants: Delivery_Driver OrderRequestService]
+
+		CallMessage::OrderRequestSSDCallMessage1(acceptOrder OrderRequestSSDCallMessage1SendingEnd -> OrderRequestSSDExecution1StartEnd)
+		ReturnMessage::OrderRequestSSDCallMessage1Return(OrderRequestSSDExecution1FinishEnd -> OrderRequestSSDCallMessage1ReturnReceivingEnd OrderRequestSSDCallMessage1)
+		CallMessage::OrderRequestSSDCallMessage3(getDeliveryDetails OrderRequestSSDCallMessage3SendingEnd -> OrderRequestSSDExecution2StartEnd)
+		ReturnMessage::OrderRequestSSDCallMessage3Return(OrderRequestSSDExecution2FinishEnd -> OrderRequestSSDCallMessage3ReturnReceivingEnd OrderRequestSSDCallMessage3)
+		CallMessage::OrderRequestSSDCallMessage5(navigate OrderRequestSSDCallMessage5SendingEnd -> OrderRequestSSDExecution3StartEnd)
+		ReturnMessage::OrderRequestSSDCallMessage5Return(OrderRequestSSDExecution3FinishEnd -> OrderRequestSSDCallMessage5ReturnReceivingEnd OrderRequestSSDCallMessage5)
+		CallMessage::OrderRequestSSDCallMessage7(updateDeliveryStatus OrderRequestSSDCallMessage7SendingEnd -> OrderRequestSSDExecution4StartEnd)
+		ReturnMessage::OrderRequestSSDCallMessage7Return(OrderRequestSSDExecution4FinishEnd -> OrderRequestSSDCallMessage7ReturnReceivingEnd OrderRequestSSDCallMessage7)
+		CallMessage::OrderRequestSSDCallMessage9(updateLocation OrderRequestSSDCallMessage9SendingEnd -> OrderRequestSSDExecution5StartEnd)
+		ReturnMessage::OrderRequestSSDCallMessage9Return(OrderRequestSSDExecution5FinishEnd -> OrderRequestSSDCallMessage9ReturnReceivingEnd OrderRequestSSDCallMessage9)
+		CallMessage::OrderRequestSSDCallMessage11(contactCustomer OrderRequestSSDCallMessage11SendingEnd -> OrderRequestSSDExecution6StartEnd)
+		ReturnMessage::OrderRequestSSDCallMessage11Return(OrderRequestSSDExecution6FinishEnd -> OrderRequestSSDCallMessage11ReturnReceivingEnd OrderRequestSSDCallMessage11)
+
+		Execution::OrderRequestSSDExecution1(OrderRequestService OrderRequestSSDExecution1StartEnd OrderRequestSSDExecution1FinishEnd)
+		Execution::OrderRequestSSDExecution2(OrderRequestService OrderRequestSSDExecution2StartEnd OrderRequestSSDExecution2FinishEnd)
+		Execution::OrderRequestSSDExecution3(OrderRequestService OrderRequestSSDExecution3StartEnd OrderRequestSSDExecution3FinishEnd)
+		Execution::OrderRequestSSDExecution4(OrderRequestService OrderRequestSSDExecution4StartEnd OrderRequestSSDExecution4FinishEnd)
+		Execution::OrderRequestSSDExecution5(OrderRequestService OrderRequestSSDExecution5StartEnd OrderRequestSSDExecution5FinishEnd)
+		Execution::OrderRequestSSDExecution6(OrderRequestService OrderRequestSSDExecution6StartEnd OrderRequestSSDExecution6FinishEnd)
+
+		MessageEnd::OrderRequestSSDCallMessage1SendingEnd(Delivery_Driver OrderRequestSSDCallMessage1)
+		ExecutionEnd::OrderRequestSSDExecution1StartEnd(OrderRequestService OrderRequestSSDExecution1)
+		ExecutionEnd::OrderRequestSSDExecution1FinishEnd(OrderRequestService OrderRequestSSDExecution1)
+		MessageEnd::OrderRequestSSDCallMessage1ReturnReceivingEnd(Delivery_Driver OrderRequestSSDCallMessage1Return)
+		MessageEnd::OrderRequestSSDCallMessage3SendingEnd(Delivery_Driver OrderRequestSSDCallMessage3)
+		ExecutionEnd::OrderRequestSSDExecution2StartEnd(OrderRequestService OrderRequestSSDExecution2)
+		ExecutionEnd::OrderRequestSSDExecution2FinishEnd(OrderRequestService OrderRequestSSDExecution2)
+		MessageEnd::OrderRequestSSDCallMessage3ReturnReceivingEnd(Delivery_Driver OrderRequestSSDCallMessage3Return)
+		MessageEnd::OrderRequestSSDCallMessage5SendingEnd(Delivery_Driver OrderRequestSSDCallMessage5)
+		ExecutionEnd::OrderRequestSSDExecution3StartEnd(OrderRequestService OrderRequestSSDExecution3)
+		ExecutionEnd::OrderRequestSSDExecution3FinishEnd(OrderRequestService OrderRequestSSDExecution3)
+		MessageEnd::OrderRequestSSDCallMessage5ReturnReceivingEnd(Delivery_Driver OrderRequestSSDCallMessage5Return)
+		MessageEnd::OrderRequestSSDCallMessage7SendingEnd(Delivery_Driver OrderRequestSSDCallMessage7)
+		ExecutionEnd::OrderRequestSSDExecution4StartEnd(OrderRequestService OrderRequestSSDExecution4)
+		ExecutionEnd::OrderRequestSSDExecution4FinishEnd(OrderRequestService OrderRequestSSDExecution4)
+		MessageEnd::OrderRequestSSDCallMessage7ReturnReceivingEnd(Delivery_Driver OrderRequestSSDCallMessage7Return)
+		MessageEnd::OrderRequestSSDCallMessage9SendingEnd(Delivery_Driver OrderRequestSSDCallMessage9)
+		ExecutionEnd::OrderRequestSSDExecution5StartEnd(OrderRequestService OrderRequestSSDExecution5)
+		ExecutionEnd::OrderRequestSSDExecution5FinishEnd(OrderRequestService OrderRequestSSDExecution5)
+		MessageEnd::OrderRequestSSDCallMessage9ReturnReceivingEnd(Delivery_Driver OrderRequestSSDCallMessage9Return)
+		MessageEnd::OrderRequestSSDCallMessage11SendingEnd(Delivery_Driver OrderRequestSSDCallMessage11)
+		ExecutionEnd::OrderRequestSSDExecution6StartEnd(OrderRequestService OrderRequestSSDExecution6)
+		ExecutionEnd::OrderRequestSSDExecution6FinishEnd(OrderRequestService OrderRequestSSDExecution6)
+		MessageEnd::OrderRequestSSDCallMessage11ReturnReceivingEnd(Delivery_Driver OrderRequestSSDCallMessage11Return)
+
+	}
+
+	Interaction TrackOrderProfilesSSD {
+
+		[Participants: Customer_Service_Agent TrackOrderProfilesService]
+
+		CallMessage::TrackOrderProfilesSSDCallMessage1(receiveCutomerRequest TrackOrderProfilesSSDCallMessage1SendingEnd -> TrackOrderProfilesSSDExecution1StartEnd)
+		ReturnMessage::TrackOrderProfilesSSDCallMessage1Return(TrackOrderProfilesSSDExecution1FinishEnd -> TrackOrderProfilesSSDCallMessage1ReturnReceivingEnd TrackOrderProfilesSSDCallMessage1)
+		CallMessage::TrackOrderProfilesSSDCallMessage3(processRequest TrackOrderProfilesSSDCallMessage3SendingEnd -> TrackOrderProfilesSSDExecution2StartEnd)
+		ReturnMessage::TrackOrderProfilesSSDCallMessage3Return(TrackOrderProfilesSSDExecution2FinishEnd -> TrackOrderProfilesSSDCallMessage3ReturnReceivingEnd TrackOrderProfilesSSDCallMessage3)
+		CallMessage::TrackOrderProfilesSSDCallMessage5(retrieveOrderInformation TrackOrderProfilesSSDCallMessage5SendingEnd -> TrackOrderProfilesSSDExecution3StartEnd)
+		ReturnMessage::TrackOrderProfilesSSDCallMessage5Return(TrackOrderProfilesSSDExecution3FinishEnd -> TrackOrderProfilesSSDCallMessage5ReturnReceivingEnd TrackOrderProfilesSSDCallMessage5)
+		CallMessage::TrackOrderProfilesSSDCallMessage7(updateOrderStatus TrackOrderProfilesSSDCallMessage7SendingEnd -> TrackOrderProfilesSSDExecution4StartEnd)
+		ReturnMessage::TrackOrderProfilesSSDCallMessage7Return(TrackOrderProfilesSSDExecution4FinishEnd -> TrackOrderProfilesSSDCallMessage7ReturnReceivingEnd TrackOrderProfilesSSDCallMessage7)
+		CallMessage::TrackOrderProfilesSSDCallMessage9(provideCustomerResponse TrackOrderProfilesSSDCallMessage9SendingEnd -> TrackOrderProfilesSSDExecution5StartEnd)
+		ReturnMessage::TrackOrderProfilesSSDCallMessage9Return(TrackOrderProfilesSSDExecution5FinishEnd -> TrackOrderProfilesSSDCallMessage9ReturnReceivingEnd TrackOrderProfilesSSDCallMessage9)
+
+		Execution::TrackOrderProfilesSSDExecution1(TrackOrderProfilesService TrackOrderProfilesSSDExecution1StartEnd TrackOrderProfilesSSDExecution1FinishEnd)
+		Execution::TrackOrderProfilesSSDExecution2(TrackOrderProfilesService TrackOrderProfilesSSDExecution2StartEnd TrackOrderProfilesSSDExecution2FinishEnd)
+		Execution::TrackOrderProfilesSSDExecution3(TrackOrderProfilesService TrackOrderProfilesSSDExecution3StartEnd TrackOrderProfilesSSDExecution3FinishEnd)
+		Execution::TrackOrderProfilesSSDExecution4(TrackOrderProfilesService TrackOrderProfilesSSDExecution4StartEnd TrackOrderProfilesSSDExecution4FinishEnd)
+		Execution::TrackOrderProfilesSSDExecution5(TrackOrderProfilesService TrackOrderProfilesSSDExecution5StartEnd TrackOrderProfilesSSDExecution5FinishEnd)
+
+		MessageEnd::TrackOrderProfilesSSDCallMessage1SendingEnd(Customer_Service_Agent TrackOrderProfilesSSDCallMessage1)
+		ExecutionEnd::TrackOrderProfilesSSDExecution1StartEnd(TrackOrderProfilesService TrackOrderProfilesSSDExecution1)
+		ExecutionEnd::TrackOrderProfilesSSDExecution1FinishEnd(TrackOrderProfilesService TrackOrderProfilesSSDExecution1)
+		MessageEnd::TrackOrderProfilesSSDCallMessage1ReturnReceivingEnd(Customer_Service_Agent TrackOrderProfilesSSDCallMessage1Return)
+		MessageEnd::TrackOrderProfilesSSDCallMessage3SendingEnd(Customer_Service_Agent TrackOrderProfilesSSDCallMessage3)
+		ExecutionEnd::TrackOrderProfilesSSDExecution2StartEnd(TrackOrderProfilesService TrackOrderProfilesSSDExecution2)
+		ExecutionEnd::TrackOrderProfilesSSDExecution2FinishEnd(TrackOrderProfilesService TrackOrderProfilesSSDExecution2)
+		MessageEnd::TrackOrderProfilesSSDCallMessage3ReturnReceivingEnd(Customer_Service_Agent TrackOrderProfilesSSDCallMessage3Return)
+		MessageEnd::TrackOrderProfilesSSDCallMessage5SendingEnd(Customer_Service_Agent TrackOrderProfilesSSDCallMessage5)
+		ExecutionEnd::TrackOrderProfilesSSDExecution3StartEnd(TrackOrderProfilesService TrackOrderProfilesSSDExecution3)
+		ExecutionEnd::TrackOrderProfilesSSDExecution3FinishEnd(TrackOrderProfilesService TrackOrderProfilesSSDExecution3)
+		MessageEnd::TrackOrderProfilesSSDCallMessage5ReturnReceivingEnd(Customer_Service_Agent TrackOrderProfilesSSDCallMessage5Return)
+		MessageEnd::TrackOrderProfilesSSDCallMessage7SendingEnd(Customer_Service_Agent TrackOrderProfilesSSDCallMessage7)
+		ExecutionEnd::TrackOrderProfilesSSDExecution4StartEnd(TrackOrderProfilesService TrackOrderProfilesSSDExecution4)
+		ExecutionEnd::TrackOrderProfilesSSDExecution4FinishEnd(TrackOrderProfilesService TrackOrderProfilesSSDExecution4)
+		MessageEnd::TrackOrderProfilesSSDCallMessage7ReturnReceivingEnd(Customer_Service_Agent TrackOrderProfilesSSDCallMessage7Return)
+		MessageEnd::TrackOrderProfilesSSDCallMessage9SendingEnd(Customer_Service_Agent TrackOrderProfilesSSDCallMessage9)
+		ExecutionEnd::TrackOrderProfilesSSDExecution5StartEnd(TrackOrderProfilesService TrackOrderProfilesSSDExecution5)
+		ExecutionEnd::TrackOrderProfilesSSDExecution5FinishEnd(TrackOrderProfilesService TrackOrderProfilesSSDExecution5)
+		MessageEnd::TrackOrderProfilesSSDCallMessage9ReturnReceivingEnd(Customer_Service_Agent TrackOrderProfilesSSDCallMessage9Return)
+
+	}
+
+	Interaction UpdateMenuSSD {
+
+		[Participants: Restaurant_Manager UpdateMenuService]
+
+		CallMessage::UpdateMenuSSDCallMessage1(updateMenu UpdateMenuSSDCallMessage1SendingEnd -> UpdateMenuSSDExecution1StartEnd)
+		ReturnMessage::UpdateMenuSSDCallMessage1Return(UpdateMenuSSDExecution1FinishEnd -> UpdateMenuSSDCallMessage1ReturnReceivingEnd UpdateMenuSSDCallMessage1)
+		CallMessage::UpdateMenuSSDCallMessage3(validateMenu UpdateMenuSSDCallMessage3SendingEnd -> UpdateMenuSSDExecution2StartEnd)
+		ReturnMessage::UpdateMenuSSDCallMessage3Return(UpdateMenuSSDExecution2FinishEnd -> UpdateMenuSSDCallMessage3ReturnReceivingEnd UpdateMenuSSDCallMessage3)
+		CallMessage::UpdateMenuSSDCallMessage5(saveMenu UpdateMenuSSDCallMessage5SendingEnd -> UpdateMenuSSDExecution3StartEnd)
+		ReturnMessage::UpdateMenuSSDCallMessage5Return(UpdateMenuSSDExecution3FinishEnd -> UpdateMenuSSDCallMessage5ReturnReceivingEnd UpdateMenuSSDCallMessage5)
+		CallMessage::UpdateMenuSSDCallMessage7(notifyCustomers UpdateMenuSSDCallMessage7SendingEnd -> UpdateMenuSSDExecution4StartEnd)
+		ReturnMessage::UpdateMenuSSDCallMessage7Return(UpdateMenuSSDExecution4FinishEnd -> UpdateMenuSSDCallMessage7ReturnReceivingEnd UpdateMenuSSDCallMessage7)
+
+		Execution::UpdateMenuSSDExecution1(UpdateMenuService UpdateMenuSSDExecution1StartEnd UpdateMenuSSDExecution1FinishEnd)
+		Execution::UpdateMenuSSDExecution2(UpdateMenuService UpdateMenuSSDExecution2StartEnd UpdateMenuSSDExecution2FinishEnd)
+		Execution::UpdateMenuSSDExecution3(UpdateMenuService UpdateMenuSSDExecution3StartEnd UpdateMenuSSDExecution3FinishEnd)
+		Execution::UpdateMenuSSDExecution4(UpdateMenuService UpdateMenuSSDExecution4StartEnd UpdateMenuSSDExecution4FinishEnd)
+
+		MessageEnd::UpdateMenuSSDCallMessage1SendingEnd(Restaurant_Manager UpdateMenuSSDCallMessage1)
+		ExecutionEnd::UpdateMenuSSDExecution1StartEnd(UpdateMenuService UpdateMenuSSDExecution1)
+		ExecutionEnd::UpdateMenuSSDExecution1FinishEnd(UpdateMenuService UpdateMenuSSDExecution1)
+		MessageEnd::UpdateMenuSSDCallMessage1ReturnReceivingEnd(Restaurant_Manager UpdateMenuSSDCallMessage1Return)
+		MessageEnd::UpdateMenuSSDCallMessage3SendingEnd(Restaurant_Manager UpdateMenuSSDCallMessage3)
+		ExecutionEnd::UpdateMenuSSDExecution2StartEnd(UpdateMenuService UpdateMenuSSDExecution2)
+		ExecutionEnd::UpdateMenuSSDExecution2FinishEnd(UpdateMenuService UpdateMenuSSDExecution2)
+		MessageEnd::UpdateMenuSSDCallMessage3ReturnReceivingEnd(Restaurant_Manager UpdateMenuSSDCallMessage3Return)
+		MessageEnd::UpdateMenuSSDCallMessage5SendingEnd(Restaurant_Manager UpdateMenuSSDCallMessage5)
+		ExecutionEnd::UpdateMenuSSDExecution3StartEnd(UpdateMenuService UpdateMenuSSDExecution3)
+		ExecutionEnd::UpdateMenuSSDExecution3FinishEnd(UpdateMenuService UpdateMenuSSDExecution3)
+		MessageEnd::UpdateMenuSSDCallMessage5ReturnReceivingEnd(Restaurant_Manager UpdateMenuSSDCallMessage5Return)
+		MessageEnd::UpdateMenuSSDCallMessage7SendingEnd(Restaurant_Manager UpdateMenuSSDCallMessage7)
+		ExecutionEnd::UpdateMenuSSDExecution4StartEnd(UpdateMenuService UpdateMenuSSDExecution4)
+		ExecutionEnd::UpdateMenuSSDExecution4FinishEnd(UpdateMenuService UpdateMenuSSDExecution4)
+		MessageEnd::UpdateMenuSSDCallMessage7ReturnReceivingEnd(Restaurant_Manager UpdateMenuSSDCallMessage7Return)
+
+	}
+
+	Interaction PlaceOrderSSD {
+
+		[Participants: Customer PlaceOrderService]
+
+		CallMessage::PlaceOrderSSDCallMessage1(selectRestaurant PlaceOrderSSDCallMessage1SendingEnd -> PlaceOrderSSDExecution1StartEnd)
+		ReturnMessage::PlaceOrderSSDCallMessage1Return(PlaceOrderSSDExecution1FinishEnd -> PlaceOrderSSDCallMessage1ReturnReceivingEnd PlaceOrderSSDCallMessage1)
+		CallMessage::PlaceOrderSSDCallMessage3(browseMenu PlaceOrderSSDCallMessage3SendingEnd -> PlaceOrderSSDExecution2StartEnd)
+		ReturnMessage::PlaceOrderSSDCallMessage3Return(PlaceOrderSSDExecution2FinishEnd -> PlaceOrderSSDCallMessage3ReturnReceivingEnd PlaceOrderSSDCallMessage3)
+		CallMessage::PlaceOrderSSDCallMessage5(addItemsToCart PlaceOrderSSDCallMessage5SendingEnd -> PlaceOrderSSDExecution3StartEnd)
+		ReturnMessage::PlaceOrderSSDCallMessage5Return(PlaceOrderSSDExecution3FinishEnd -> PlaceOrderSSDCallMessage5ReturnReceivingEnd PlaceOrderSSDCallMessage5)
+		CallMessage::PlaceOrderSSDCallMessage7(reviewCart PlaceOrderSSDCallMessage7SendingEnd -> PlaceOrderSSDExecution4StartEnd)
+		ReturnMessage::PlaceOrderSSDCallMessage7Return(PlaceOrderSSDExecution4FinishEnd -> PlaceOrderSSDCallMessage7ReturnReceivingEnd PlaceOrderSSDCallMessage7)
+		CallMessage::PlaceOrderSSDCallMessage9(proceedToCheckout PlaceOrderSSDCallMessage9SendingEnd -> PlaceOrderSSDExecution5StartEnd)
+		ReturnMessage::PlaceOrderSSDCallMessage9Return(PlaceOrderSSDExecution5FinishEnd -> PlaceOrderSSDCallMessage9ReturnReceivingEnd PlaceOrderSSDCallMessage9)
+		CallMessage::PlaceOrderSSDCallMessage11(selectPaymentMethod PlaceOrderSSDCallMessage11SendingEnd -> PlaceOrderSSDExecution6StartEnd)
+		ReturnMessage::PlaceOrderSSDCallMessage11Return(PlaceOrderSSDExecution6FinishEnd -> PlaceOrderSSDCallMessage11ReturnReceivingEnd PlaceOrderSSDCallMessage11)
+		CallMessage::PlaceOrderSSDCallMessage13(providePaymentDetails PlaceOrderSSDCallMessage13SendingEnd -> PlaceOrderSSDExecution7StartEnd)
+		ReturnMessage::PlaceOrderSSDCallMessage13Return(PlaceOrderSSDExecution7FinishEnd -> PlaceOrderSSDCallMessage13ReturnReceivingEnd PlaceOrderSSDCallMessage13)
+		CallMessage::PlaceOrderSSDCallMessage15(placeOrder PlaceOrderSSDCallMessage15SendingEnd -> PlaceOrderSSDExecution8StartEnd)
+		ReturnMessage::PlaceOrderSSDCallMessage15Return(PlaceOrderSSDExecution8FinishEnd -> PlaceOrderSSDCallMessage15ReturnReceivingEnd PlaceOrderSSDCallMessage15)
+		CallMessage::PlaceOrderSSDCallMessage17(confirmOrder PlaceOrderSSDCallMessage17SendingEnd -> PlaceOrderSSDExecution9StartEnd)
+		ReturnMessage::PlaceOrderSSDCallMessage17Return(PlaceOrderSSDExecution9FinishEnd -> PlaceOrderSSDCallMessage17ReturnReceivingEnd PlaceOrderSSDCallMessage17)
+
+		Execution::PlaceOrderSSDExecution1(PlaceOrderService PlaceOrderSSDExecution1StartEnd PlaceOrderSSDExecution1FinishEnd)
+		Execution::PlaceOrderSSDExecution2(PlaceOrderService PlaceOrderSSDExecution2StartEnd PlaceOrderSSDExecution2FinishEnd)
+		Execution::PlaceOrderSSDExecution3(PlaceOrderService PlaceOrderSSDExecution3StartEnd PlaceOrderSSDExecution3FinishEnd)
+		Execution::PlaceOrderSSDExecution4(PlaceOrderService PlaceOrderSSDExecution4StartEnd PlaceOrderSSDExecution4FinishEnd)
+		Execution::PlaceOrderSSDExecution5(PlaceOrderService PlaceOrderSSDExecution5StartEnd PlaceOrderSSDExecution5FinishEnd)
+		Execution::PlaceOrderSSDExecution6(PlaceOrderService PlaceOrderSSDExecution6StartEnd PlaceOrderSSDExecution6FinishEnd)
+		Execution::PlaceOrderSSDExecution7(PlaceOrderService PlaceOrderSSDExecution7StartEnd PlaceOrderSSDExecution7FinishEnd)
+		Execution::PlaceOrderSSDExecution8(PlaceOrderService PlaceOrderSSDExecution8StartEnd PlaceOrderSSDExecution8FinishEnd)
+		Execution::PlaceOrderSSDExecution9(PlaceOrderService PlaceOrderSSDExecution9StartEnd PlaceOrderSSDExecution9FinishEnd)
+
+		MessageEnd::PlaceOrderSSDCallMessage1SendingEnd(Customer PlaceOrderSSDCallMessage1)
+		ExecutionEnd::PlaceOrderSSDExecution1StartEnd(PlaceOrderService PlaceOrderSSDExecution1)
+		ExecutionEnd::PlaceOrderSSDExecution1FinishEnd(PlaceOrderService PlaceOrderSSDExecution1)
+		MessageEnd::PlaceOrderSSDCallMessage1ReturnReceivingEnd(Customer PlaceOrderSSDCallMessage1Return)
+		MessageEnd::PlaceOrderSSDCallMessage3SendingEnd(Customer PlaceOrderSSDCallMessage3)
+		ExecutionEnd::PlaceOrderSSDExecution2StartEnd(PlaceOrderService PlaceOrderSSDExecution2)
+		ExecutionEnd::PlaceOrderSSDExecution2FinishEnd(PlaceOrderService PlaceOrderSSDExecution2)
+		MessageEnd::PlaceOrderSSDCallMessage3ReturnReceivingEnd(Customer PlaceOrderSSDCallMessage3Return)
+		MessageEnd::PlaceOrderSSDCallMessage5SendingEnd(Customer PlaceOrderSSDCallMessage5)
+		ExecutionEnd::PlaceOrderSSDExecution3StartEnd(PlaceOrderService PlaceOrderSSDExecution3)
+		ExecutionEnd::PlaceOrderSSDExecution3FinishEnd(PlaceOrderService PlaceOrderSSDExecution3)
+		MessageEnd::PlaceOrderSSDCallMessage5ReturnReceivingEnd(Customer PlaceOrderSSDCallMessage5Return)
+		MessageEnd::PlaceOrderSSDCallMessage7SendingEnd(Customer PlaceOrderSSDCallMessage7)
+		ExecutionEnd::PlaceOrderSSDExecution4StartEnd(PlaceOrderService PlaceOrderSSDExecution4)
+		ExecutionEnd::PlaceOrderSSDExecution4FinishEnd(PlaceOrderService PlaceOrderSSDExecution4)
+		MessageEnd::PlaceOrderSSDCallMessage7ReturnReceivingEnd(Customer PlaceOrderSSDCallMessage7Return)
+		MessageEnd::PlaceOrderSSDCallMessage9SendingEnd(Customer PlaceOrderSSDCallMessage9)
+		ExecutionEnd::PlaceOrderSSDExecution5StartEnd(PlaceOrderService PlaceOrderSSDExecution5)
+		ExecutionEnd::PlaceOrderSSDExecution5FinishEnd(PlaceOrderService PlaceOrderSSDExecution5)
+		MessageEnd::PlaceOrderSSDCallMessage9ReturnReceivingEnd(Customer PlaceOrderSSDCallMessage9Return)
+		MessageEnd::PlaceOrderSSDCallMessage11SendingEnd(Customer PlaceOrderSSDCallMessage11)
+		ExecutionEnd::PlaceOrderSSDExecution6StartEnd(PlaceOrderService PlaceOrderSSDExecution6)
+		ExecutionEnd::PlaceOrderSSDExecution6FinishEnd(PlaceOrderService PlaceOrderSSDExecution6)
+		MessageEnd::PlaceOrderSSDCallMessage11ReturnReceivingEnd(Customer PlaceOrderSSDCallMessage11Return)
+		MessageEnd::PlaceOrderSSDCallMessage13SendingEnd(Customer PlaceOrderSSDCallMessage13)
+		ExecutionEnd::PlaceOrderSSDExecution7StartEnd(PlaceOrderService PlaceOrderSSDExecution7)
+		ExecutionEnd::PlaceOrderSSDExecution7FinishEnd(PlaceOrderService PlaceOrderSSDExecution7)
+		MessageEnd::PlaceOrderSSDCallMessage13ReturnReceivingEnd(Customer PlaceOrderSSDCallMessage13Return)
+		MessageEnd::PlaceOrderSSDCallMessage15SendingEnd(Customer PlaceOrderSSDCallMessage15)
+		ExecutionEnd::PlaceOrderSSDExecution8StartEnd(PlaceOrderService PlaceOrderSSDExecution8)
+		ExecutionEnd::PlaceOrderSSDExecution8FinishEnd(PlaceOrderService PlaceOrderSSDExecution8)
+		MessageEnd::PlaceOrderSSDCallMessage15ReturnReceivingEnd(Customer PlaceOrderSSDCallMessage15Return)
+		MessageEnd::PlaceOrderSSDCallMessage17SendingEnd(Customer PlaceOrderSSDCallMessage17)
+		ExecutionEnd::PlaceOrderSSDExecution9StartEnd(PlaceOrderService PlaceOrderSSDExecution9)
+		ExecutionEnd::PlaceOrderSSDExecution9FinishEnd(PlaceOrderService PlaceOrderSSDExecution9)
+		MessageEnd::PlaceOrderSSDCallMessage17ReturnReceivingEnd(Customer PlaceOrderSSDCallMessage17Return)
+
+	}
+
+	Service Agent {
+
+	}
+
+	Service ThirdPartyServices {
+
+	}
+
+	Service OrderRequestService {
+
+		[Operation]
+		acceptOrder(orderID)
+		getDeliveryDetails(orderID)
+		navigate(destination)
+		updateDeliveryStatus(orderID, status)
+		updateLocation(location)
+		contactCustomer(phoneNumber)
+
+	}
+
+	Service TrackOrderProfilesService {
+
+		[Operation]
+		receiveCutomerRequest(requestDetails)
+		processRequest(requestDetails)
+		retrieveOrderInformation(orderID)
+		updateOrderStatus(orderID, newStatus)
+		provideCustomerResponse(responseDetails)
+
+	}
+
+	Service UpdateMenuService {
+
+		[Operation]
+		updateMenu(menuDetails)
+		validateMenu(menuDetails)
+		saveMenu(menuDetails)
+		notifyCustomers(menuUpdateNotification)
+
+	}
+
+	Service PlaceOrderService {
+
+		[Operation]
+		selectRestaurant(restaurantID)
+		browseMenu(restaurantID)
+		addItemsToCart(item, quantity)
+		reviewCart()
+		proceedToCheckout()
+		selectPaymentMethod(paymentMethod)
+		providePaymentDetails(paymentDetails)
+		placeOrder(orderDetails, paymentDetails)
+		confirmOrder(orderID)
+
+	}
+
+	Service FoodDeliveryAppSystem {
+
+	}
+
+	Contract UpdateMenuService::updateMenu(menuDetails : String) : Boolean {
+
+		definition:
+			mu:Menu = Menu.allInstance()->any(m:Menu | m.MenuID = menuID)
+
+		precondition:
+			true
+		postcondition:
+			true
+	}
+
+}
+
+DomainModel FoodDeliveryApp {
+
+	Entity Customer {
+		ID : Integer
+		Name : String
+		Address : String
+		Phone : String
+		Email : String
+		Username : String
+		Password : String
+	}
+
+	Entity DeliveryDriver {
+		ID : Integer
+		Name : String
+		Phone : String
+	}
+
+	Entity RestaurantOwner {
+		ID : Integer
+		Phone : String
+		Email : String
+		RestaurantID : Integer
+	}
+
+	Entity CustomerServiceAgent {
+		ID : Integer
+		Name : String
+		Email : String
+		Phone : String
+	}
+
+	Entity CashPayment {
+		Balance : Real
+	}
+
+	Entity CardPayment {
+		CardNumber : String
+		ExpirationDate : Date
+	}
+
+	Entity Payment {
+		AmountTendered : PaymentMethod[CASH|CARD]
+	}
+
+	Entity Cart {
+		ID : Integer
+		Quantity : Integer *
+		Products : String *
+		Price : Real *
+		Total : Real
+	}
+
+	Entity Review {
+		ID : Integer
+		CustomerID : Integer
+		RestaurantID : Integer
+		DeliveryDriverID : Integer
+		Rating : Integer *
+		Comment : String
+	}
+
+	Entity Order {
+		ID : Integer
+		OrderDate : Date
+		OrderDescription : String
+		Status : String
+		CustomerID : Integer
+		OrderNumber : String
+	}
+
+	Entity Delivery {
+		ID : Integer
+		CustomerID : Integer
+		Address : String
+		Description : String
+		DeliveryDriverID : Integer
+	}
+
+	Entity Restaurant {
+		ID : Integer
+		Name : String
+		Description : String
+		Cuisine : String
+		Status : Boolean
+		Phone : String
+		Email : String
+		Address : String
+	}
+
+	Entity Category {
+		ID : Integer
+		Name : String
+		Filter : FilterCriteria[DISTANCE|PRICE|PROMOTION|CUISINE|STATUS|RATING]
+	}
+
+	Entity UpdateMenu {
+		RestaurantID : Integer
+		RestaurantOwnerID : Integer
+		Description : String
+		MenuID : Integer
+		NewPrice : Real
+	}
+
+	Entity Contact {
+		ID : Integer
+		MessagerID : Integer
+		MessageeID : Integer
+		Message : String
+	}
+
+	Entity Guest {
+	}
+
+	Entity Login {
+		Username : String
+		Password : String
+	}
+
+	Entity Item {
+		ID : Integer
+		Description : String
+		Price : Real
+		Ingredients : String
+		Category : String
+		Promotion : Boolean
+		Name : String
+		Customizable : Boolean
+		RestaurantID : Integer
+	}
+
+	Entity Menu {
+		ID : Integer
+		ItemID : String *
+	}
+
+}
+

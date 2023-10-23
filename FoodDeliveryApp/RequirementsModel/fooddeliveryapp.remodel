@@ -329,12 +329,22 @@ DomainModel FoodDeliveryApp {
 		Email : String
 		Username : String
 		Password : String
+	[Refer]
+		CustomertoCart : Cart Association
+		CustomertoReview : Review* Association
+		CustomertoOrder : Order* Association
+		CustomertoDelivery : Delivery* ! Association
+		CustomertoLogin : Login* ! Association
+		CustomertoPayment : Payment* Association
 	}
 
 	Entity DeliveryDriver {
 		ID : Integer
 		Name : String
 		Phone : String
+	[Refer]
+		DeliveryDrivertoDelivery : Delivery* ! Association
+		DeliveryDrivertoReview : Review* Association
 	}
 
 	Entity RestaurantOwner {
@@ -342,6 +352,8 @@ DomainModel FoodDeliveryApp {
 		Phone : String
 		Email : String
 		RestaurantID : Integer
+	[Refer]
+		RestaurantOwnertoRestaurant : Restaurant* Association
 	}
 
 	Entity CustomerServiceAgent {
@@ -349,19 +361,29 @@ DomainModel FoodDeliveryApp {
 		Name : String
 		Email : String
 		Phone : String
+	[Refer]
+		CustomerServiceAgenttoContact : Contact* Association
 	}
 
 	Entity CashPayment {
 		Balance : Real
+	[Refer]
+		CashPaymenttoPayment : Payment Association
 	}
 
 	Entity CardPayment {
 		CardNumber : String
 		ExpirationDate : Date
+	[Refer]
+		CardPaymenttoPayment : Payment Association
 	}
 
 	Entity Payment {
 		AmountTendered : PaymentMethod[CASH|CARD]
+	[Refer]
+		PaymenttoCustomer : Customer ! Association
+		PaymenttoCashPayment : CashPayment ! Association
+		PaymenttoCardPayment : CardPayment ! Association
 	}
 
 	Entity Cart {
@@ -370,6 +392,9 @@ DomainModel FoodDeliveryApp {
 		Products : String *
 		Price : Real *
 		Total : Real
+	[Refer]
+		CarttoCustomer : Customer ! Association
+		CarttoItem : Item* Association
 	}
 
 	Entity Review {
@@ -379,6 +404,10 @@ DomainModel FoodDeliveryApp {
 		DeliveryDriverID : Integer
 		Rating : Integer *
 		Comment : String
+	[Refer]
+		ReviewtoCustomer : Customer ! Association
+		ReviewtoRestaurant : Restaurant ! Association
+		ReviewtoDeliveryDriver : DeliveryDriver ! Association
 	}
 
 	Entity Order {
@@ -388,6 +417,9 @@ DomainModel FoodDeliveryApp {
 		Status : String
 		CustomerID : Integer
 		OrderNumber : String
+	[Refer]
+		OrdertoCustomer : Customer ! Association
+		OrdertoRestaurant : Restaurant Association
 	}
 
 	Entity Delivery {
@@ -396,6 +428,9 @@ DomainModel FoodDeliveryApp {
 		Address : String
 		Description : String
 		DeliveryDriverID : Integer
+	[Refer]
+		DeliverytoDeliveryDriver : DeliveryDriver Association
+		DeliverytoCustomer : Customer Association
 	}
 
 	Entity Restaurant {
@@ -407,12 +442,20 @@ DomainModel FoodDeliveryApp {
 		Phone : String
 		Email : String
 		Address : String
+	[Refer]
+		RestauranttoUpdateMenu : UpdateMenu* Association
+		RestauranttoRestaurantOwner : RestaurantOwner ! Association
+		RestauranttoMenu : Menu ! Association
+		RestauranttoReview : Review* Association
+		RestauranttoOrder : Order* ! Association
 	}
 
 	Entity Category {
 		ID : Integer
 		Name : String
 		Filter : FilterCriteria[DISTANCE|PRICE|PROMOTION|CUISINE|STATUS|RATING]
+	[Refer]
+		CategorytoItem : Item* Association
 	}
 
 	Entity UpdateMenu {
@@ -421,6 +464,8 @@ DomainModel FoodDeliveryApp {
 		Description : String
 		MenuID : Integer
 		NewPrice : Real
+	[Refer]
+		UpdateMenutoRestaurant : Restaurant ! Association
 	}
 
 	Entity Contact {
@@ -428,14 +473,21 @@ DomainModel FoodDeliveryApp {
 		MessagerID : Integer
 		MessageeID : Integer
 		Message : String
+	[Refer]
+		ContacttoCustomerServiceAgent : CustomerServiceAgent ! Association
 	}
 
 	Entity Guest {
+	[Refer]
+		GuesttoLogin : Login* ! Association
 	}
 
 	Entity Login {
 		Username : String
 		Password : String
+	[Refer]
+		LogintoGuest : Guest Association
+		LogintoCustomer : Customer Association
 	}
 
 	Entity Item {
@@ -448,11 +500,18 @@ DomainModel FoodDeliveryApp {
 		Name : String
 		Customizable : Boolean
 		RestaurantID : Integer
+	[Refer]
+		ItemtoMenu : Menu* ! Association
+		ItemtoCategory : Category* ! Association
+		ItemtoCart : Cart ! Association
 	}
 
 	Entity Menu {
 		ID : Integer
 		ItemID : String *
+	[Refer]
+		MenutoRestaurant : Restaurant Association
+		MenutoItem : Item* Association
 	}
 
 }

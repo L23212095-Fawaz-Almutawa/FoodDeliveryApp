@@ -4,7 +4,7 @@
     <semanticResources>fooddeliveryapp.remodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_IrnbAG5iEe6mx-p-YOO94w">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/net.mydreamy.requirementmodel.design/description/requirementmodel.odesign#//@ownedViewpoints[name='RequirementModel']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Isousm5iEe6mx-p-YOO94w" name="FoodDeliveryApp Conceptual Class Diagram" repPath="#_IsousG5iEe6mx-p-YOO94w" changeId="19e4fda4-ffe8-4441-beea-1d5ffa81cec2">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Isousm5iEe6mx-p-YOO94w" name="FoodDeliveryApp Conceptual Class Diagram" repPath="#_IsousG5iEe6mx-p-YOO94w" changeId="df278d64-1569-4511-bd30-4afb420e52a5">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/net.mydreamy.requirementmodel.design/description/requirementmodel.odesign#//@ownedViewpoints[name='RequirementModel']/@ownedRepresentations[name='Conceptual%20Class%20Diagram']"/>
         <target xmi:type="rEMODEL:DomainModel" href="fooddeliveryapp.remodel#//@DomainModel"/>
       </ownedRepresentationDescriptors>
@@ -562,6 +562,43 @@
           <styles xmi:type="notation:ShapeStyle" xmi:id="_FANq53AQEe6emN1O2WyY7g" fontName="Segoe UI" bold="true"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FANq6HAQEe6emN1O2WyY7g" x="774" y="558" width="147" height="93"/>
         </children>
+        <children xmi:type="notation:Node" xmi:id="_Z9STXHJtEe68kY1A5GPQJg" type="2003" element="_Z9SR9nJtEe68kY1A5GPQJg">
+          <children xmi:type="notation:Node" xmi:id="_Z9aNoHJtEe68kY1A5GPQJg" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_Z9aNoXJtEe68kY1A5GPQJg" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_Z9aNpHJtEe68kY1A5GPQJg" type="3010" element="_Z9SR-XJtEe68kY1A5GPQJg">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Z9aNpXJtEe68kY1A5GPQJg" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Z9aNpnJtEe68kY1A5GPQJg"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Z9aNp3JtEe68kY1A5GPQJg" type="3010" element="_Z9SR-3JtEe68kY1A5GPQJg">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Z9aNqHJtEe68kY1A5GPQJg" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Z9aNqXJtEe68kY1A5GPQJg"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Z9aNqnJtEe68kY1A5GPQJg" type="3010" element="_Z9SR_XJtEe68kY1A5GPQJg">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Z9aNq3JtEe68kY1A5GPQJg" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Z9aNrHJtEe68kY1A5GPQJg"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Z9aNrXJtEe68kY1A5GPQJg" type="3010" element="_Z9SR_3JtEe68kY1A5GPQJg">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Z9aNrnJtEe68kY1A5GPQJg" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Z9aNr3JtEe68kY1A5GPQJg"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Z9aNsHJtEe68kY1A5GPQJg" type="3010" element="_Z9SSAXJtEe68kY1A5GPQJg">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Z9aNsXJtEe68kY1A5GPQJg" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Z9aNsnJtEe68kY1A5GPQJg"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Z9aNs3JtEe68kY1A5GPQJg" type="3010" element="_Z9SSA3JtEe68kY1A5GPQJg">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Z9aNtHJtEe68kY1A5GPQJg" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Z9aNtXJtEe68kY1A5GPQJg"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Z9aNtnJtEe68kY1A5GPQJg" type="3010" element="_Z9SSBXJtEe68kY1A5GPQJg">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Z9aNt3JtEe68kY1A5GPQJg" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Z9aNuHJtEe68kY1A5GPQJg"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_Z9aNonJtEe68kY1A5GPQJg"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_Z9aNo3JtEe68kY1A5GPQJg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_Z9STXXJtEe68kY1A5GPQJg" fontName="Segoe UI" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Z9STXnJtEe68kY1A5GPQJg" x="-90" y="-216" width="237" height="219"/>
+        </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_IstAIm5iEe6mx-p-YOO94w"/>
         <edges xmi:type="notation:Edge" xmi:id="_uNBgQHFqEe6y_Yc9rGXZxw" type="4001" element="_uM3vxXFqEe6y_Yc9rGXZxw" source="_0ckXsG_9Ee6uoOtBwvfL4Q" target="_kmsANnAEEe6uoOtBwvfL4Q">
           <children xmi:type="notation:Node" xmi:id="_uNBgRHFqEe6y_Yc9rGXZxw" type="6001">
@@ -882,6 +919,22 @@
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_mlOIunFyEe6y_Yc9rGXZxw" points="[0, 0, 413, 0]$[-413, 0, 0, 0]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_mlOIwXFyEe6y_Yc9rGXZxw" id="(0.0,0.12413793103448276)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_mlOIwnFyEe6y_Yc9rGXZxw" id="(1.0,0.11042944785276074)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_l436jXJtEe68kY1A5GPQJg" type="4001" element="_l4kYiHJtEe68kY1A5GPQJg" source="_czC9JHAHEe6uoOtBwvfL4Q" target="_Z9STXHJtEe68kY1A5GPQJg">
+          <children xmi:type="notation:Node" xmi:id="_l436kXJtEe68kY1A5GPQJg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_l436knJtEe68kY1A5GPQJg" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_l436k3JtEe68kY1A5GPQJg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_l436lHJtEe68kY1A5GPQJg" x="39" y="-31"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_l436lXJtEe68kY1A5GPQJg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_l436lnJtEe68kY1A5GPQJg" x="-47" y="26"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_l436jnJtEe68kY1A5GPQJg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_l436j3JtEe68kY1A5GPQJg" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_l436kHJtEe68kY1A5GPQJg" points="[0, 0, 251, 0]$[-251, 0, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_l436l3JtEe68kY1A5GPQJg" id="(0.0,0.08294930875576037)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_l436mHJtEe68kY1A5GPQJg" id="(1.0,0.08294930875576037)"/>
         </edges>
       </data>
     </ownedAnnotationEntries>
@@ -1288,7 +1341,7 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/net.mydreamy.requirementmodel.design/description/requirementmodel.odesign#//@ownedViewpoints[name='RequirementModel']/@ownedRepresentations[name='Conceptual%20Class%20Diagram']/@defaultLayer/@containerMappings[name='Entity']/@subNodeMappings[name='EntityAttribute']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_czAgwHAHEe6uoOtBwvfL4Q" name="Order" outgoingEdges="_4VR68HFwEe6y_Yc9rGXZxw" incomingEdges="_vZQNZnFrEe6y_Yc9rGXZxw" width="10">
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_czAgwHAHEe6uoOtBwvfL4Q" name="Order" outgoingEdges="_4VR68HFwEe6y_Yc9rGXZxw _l4kYiHJtEe68kY1A5GPQJg" incomingEdges="_vZQNZnFrEe6y_Yc9rGXZxw" width="10">
       <target xmi:type="rEMODEL:Entity" href="fooddeliveryapp.remodel#//@DomainModel/@entity.9"/>
       <semanticElements xmi:type="rEMODEL:Entity" href="fooddeliveryapp.remodel#//@DomainModel/@entity.9"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -2017,6 +2070,84 @@
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/net.mydreamy.requirementmodel.design/description/requirementmodel.odesign#//@ownedViewpoints[name='RequirementModel']/@ownedRepresentations[name='Conceptual%20Class%20Diagram']/@defaultLayer/@edgeMappings[name='EntityReference']/@conditionnalStyles.0/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_nQEcNHFyEe6y_Yc9rGXZxw" showIcon="false"/>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_nQEcNXFyEe6y_Yc9rGXZxw" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/net.mydreamy.requirementmodel.design/description/requirementmodel.odesign#//@ownedViewpoints[name='RequirementModel']/@ownedRepresentations[name='Conceptual%20Class%20Diagram']/@defaultLayer/@edgeMappings[name='EntityReference']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_Z9SR9nJtEe68kY1A5GPQJg" name="TrackOrder" incomingEdges="_l4kYiHJtEe68kY1A5GPQJg" width="10">
+      <target xmi:type="rEMODEL:Entity" href="fooddeliveryapp.remodel#//@DomainModel/@entity.19"/>
+      <semanticElements xmi:type="rEMODEL:Entity" href="fooddeliveryapp.remodel#//@DomainModel/@entity.19"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_Z9SR93JtEe68kY1A5GPQJg" labelSize="9" showIcon="false" borderSize="1" borderSizeComputationExpression="1" borderColor="39,76,114" backgroundStyle="Liquid" foregroundColor="194,239,255">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/net.mydreamy.requirementmodel.design/description/requirementmodel.odesign#//@ownedViewpoints[name='RequirementModel']/@ownedRepresentations[name='Conceptual%20Class%20Diagram']/@defaultLayer/@containerMappings[name='Entity']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/net.mydreamy.requirementmodel.design/description/requirementmodel.odesign#//@ownedViewpoints[name='RequirementModel']/@ownedRepresentations[name='Conceptual%20Class%20Diagram']/@defaultLayer/@containerMappings[name='Entity']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_Z9SR-XJtEe68kY1A5GPQJg" name="OrderID : Integer">
+        <target xmi:type="rEMODEL:Attribute" href="fooddeliveryapp.remodel#//@DomainModel/@entity.19/@attributes.0"/>
+        <semanticElements xmi:type="rEMODEL:Attribute" href="fooddeliveryapp.remodel#//@DomainModel/@entity.19/@attributes.0"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_Z9SR-nJtEe68kY1A5GPQJg" showIcon="false" labelAlignment="LEFT" labelPosition="node" height="20">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/net.mydreamy.requirementmodel.design/description/requirementmodel.odesign#//@ownedViewpoints[name='RequirementModel']/@ownedRepresentations[name='Conceptual%20Class%20Diagram']/@defaultLayer/@containerMappings[name='Entity']/@subNodeMappings[name='EntityAttribute']/@conditionnalStyles.0/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/net.mydreamy.requirementmodel.design/description/requirementmodel.odesign#//@ownedViewpoints[name='RequirementModel']/@ownedRepresentations[name='Conceptual%20Class%20Diagram']/@defaultLayer/@containerMappings[name='Entity']/@subNodeMappings[name='EntityAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_Z9SR-3JtEe68kY1A5GPQJg" name="DeliveryAddress : String">
+        <target xmi:type="rEMODEL:Attribute" href="fooddeliveryapp.remodel#//@DomainModel/@entity.19/@attributes.1"/>
+        <semanticElements xmi:type="rEMODEL:Attribute" href="fooddeliveryapp.remodel#//@DomainModel/@entity.19/@attributes.1"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_Z9SR_HJtEe68kY1A5GPQJg" showIcon="false" labelAlignment="LEFT" labelPosition="node" height="20">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/net.mydreamy.requirementmodel.design/description/requirementmodel.odesign#//@ownedViewpoints[name='RequirementModel']/@ownedRepresentations[name='Conceptual%20Class%20Diagram']/@defaultLayer/@containerMappings[name='Entity']/@subNodeMappings[name='EntityAttribute']/@conditionnalStyles.0/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/net.mydreamy.requirementmodel.design/description/requirementmodel.odesign#//@ownedViewpoints[name='RequirementModel']/@ownedRepresentations[name='Conceptual%20Class%20Diagram']/@defaultLayer/@containerMappings[name='Entity']/@subNodeMappings[name='EntityAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_Z9SR_XJtEe68kY1A5GPQJg" name="DeliveryDriverID : Integer">
+        <target xmi:type="rEMODEL:Attribute" href="fooddeliveryapp.remodel#//@DomainModel/@entity.19/@attributes.2"/>
+        <semanticElements xmi:type="rEMODEL:Attribute" href="fooddeliveryapp.remodel#//@DomainModel/@entity.19/@attributes.2"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_Z9SR_nJtEe68kY1A5GPQJg" showIcon="false" labelAlignment="LEFT" labelPosition="node" height="20">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/net.mydreamy.requirementmodel.design/description/requirementmodel.odesign#//@ownedViewpoints[name='RequirementModel']/@ownedRepresentations[name='Conceptual%20Class%20Diagram']/@defaultLayer/@containerMappings[name='Entity']/@subNodeMappings[name='EntityAttribute']/@conditionnalStyles.0/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/net.mydreamy.requirementmodel.design/description/requirementmodel.odesign#//@ownedViewpoints[name='RequirementModel']/@ownedRepresentations[name='Conceptual%20Class%20Diagram']/@defaultLayer/@containerMappings[name='Entity']/@subNodeMappings[name='EntityAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_Z9SR_3JtEe68kY1A5GPQJg" name="CustomerID : String">
+        <target xmi:type="rEMODEL:Attribute" href="fooddeliveryapp.remodel#//@DomainModel/@entity.19/@attributes.3"/>
+        <semanticElements xmi:type="rEMODEL:Attribute" href="fooddeliveryapp.remodel#//@DomainModel/@entity.19/@attributes.3"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_Z9SSAHJtEe68kY1A5GPQJg" showIcon="false" labelAlignment="LEFT" labelPosition="node" height="20">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/net.mydreamy.requirementmodel.design/description/requirementmodel.odesign#//@ownedViewpoints[name='RequirementModel']/@ownedRepresentations[name='Conceptual%20Class%20Diagram']/@defaultLayer/@containerMappings[name='Entity']/@subNodeMappings[name='EntityAttribute']/@conditionnalStyles.0/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/net.mydreamy.requirementmodel.design/description/requirementmodel.odesign#//@ownedViewpoints[name='RequirementModel']/@ownedRepresentations[name='Conceptual%20Class%20Diagram']/@defaultLayer/@containerMappings[name='Entity']/@subNodeMappings[name='EntityAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_Z9SSAXJtEe68kY1A5GPQJg" name="RestaurantID : String">
+        <target xmi:type="rEMODEL:Attribute" href="fooddeliveryapp.remodel#//@DomainModel/@entity.19/@attributes.4"/>
+        <semanticElements xmi:type="rEMODEL:Attribute" href="fooddeliveryapp.remodel#//@DomainModel/@entity.19/@attributes.4"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_Z9SSAnJtEe68kY1A5GPQJg" showIcon="false" labelAlignment="LEFT" labelPosition="node" height="20">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/net.mydreamy.requirementmodel.design/description/requirementmodel.odesign#//@ownedViewpoints[name='RequirementModel']/@ownedRepresentations[name='Conceptual%20Class%20Diagram']/@defaultLayer/@containerMappings[name='Entity']/@subNodeMappings[name='EntityAttribute']/@conditionnalStyles.0/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/net.mydreamy.requirementmodel.design/description/requirementmodel.odesign#//@ownedViewpoints[name='RequirementModel']/@ownedRepresentations[name='Conceptual%20Class%20Diagram']/@defaultLayer/@containerMappings[name='Entity']/@subNodeMappings[name='EntityAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_Z9SSA3JtEe68kY1A5GPQJg" name="OrderNumber : String">
+        <target xmi:type="rEMODEL:Attribute" href="fooddeliveryapp.remodel#//@DomainModel/@entity.19/@attributes.5"/>
+        <semanticElements xmi:type="rEMODEL:Attribute" href="fooddeliveryapp.remodel#//@DomainModel/@entity.19/@attributes.5"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_Z9SSBHJtEe68kY1A5GPQJg" showIcon="false" labelAlignment="LEFT" labelPosition="node" height="20">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/net.mydreamy.requirementmodel.design/description/requirementmodel.odesign#//@ownedViewpoints[name='RequirementModel']/@ownedRepresentations[name='Conceptual%20Class%20Diagram']/@defaultLayer/@containerMappings[name='Entity']/@subNodeMappings[name='EntityAttribute']/@conditionnalStyles.0/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/net.mydreamy.requirementmodel.design/description/requirementmodel.odesign#//@ownedViewpoints[name='RequirementModel']/@ownedRepresentations[name='Conceptual%20Class%20Diagram']/@defaultLayer/@containerMappings[name='Entity']/@subNodeMappings[name='EntityAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_Z9SSBXJtEe68kY1A5GPQJg" name="OrderDescription : String">
+        <target xmi:type="rEMODEL:Attribute" href="fooddeliveryapp.remodel#//@DomainModel/@entity.19/@attributes.6"/>
+        <semanticElements xmi:type="rEMODEL:Attribute" href="fooddeliveryapp.remodel#//@DomainModel/@entity.19/@attributes.6"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_Z9SSBnJtEe68kY1A5GPQJg" showIcon="false" labelAlignment="LEFT" labelPosition="node" height="20">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/net.mydreamy.requirementmodel.design/description/requirementmodel.odesign#//@ownedViewpoints[name='RequirementModel']/@ownedRepresentations[name='Conceptual%20Class%20Diagram']/@defaultLayer/@containerMappings[name='Entity']/@subNodeMappings[name='EntityAttribute']/@conditionnalStyles.0/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/net.mydreamy.requirementmodel.design/description/requirementmodel.odesign#//@ownedViewpoints[name='RequirementModel']/@ownedRepresentations[name='Conceptual%20Class%20Diagram']/@defaultLayer/@containerMappings[name='Entity']/@subNodeMappings[name='EntityAttribute']"/>
+      </ownedElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_l4kYiHJtEe68kY1A5GPQJg" sourceNode="_czAgwHAHEe6uoOtBwvfL4Q" targetNode="_Z9SR9nJtEe68kY1A5GPQJg" beginLabel="TackOrdertoOrder:1" endLabel="OrdertoTackOrder:1">
+      <target xmi:type="rEMODEL:Reference" href="fooddeliveryapp.remodel#//@DomainModel/@entity.9/@reference.2"/>
+      <semanticElements xmi:type="rEMODEL:Reference" href="fooddeliveryapp.remodel#//@DomainModel/@entity.9/@reference.2"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_l4kYiXJtEe68kY1A5GPQJg" targetArrow="NoDecoration" size="0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/net.mydreamy.requirementmodel.design/description/requirementmodel.odesign#//@ownedViewpoints[name='RequirementModel']/@ownedRepresentations[name='Conceptual%20Class%20Diagram']/@defaultLayer/@edgeMappings[name='EntityReference']/@conditionnalStyles.1/@style"/>
+        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_l4kYinJtEe68kY1A5GPQJg" showIcon="false"/>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_l4kYi3JtEe68kY1A5GPQJg" showIcon="false"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/net.mydreamy.requirementmodel.design/description/requirementmodel.odesign#//@ownedViewpoints[name='RequirementModel']/@ownedRepresentations[name='Conceptual%20Class%20Diagram']/@defaultLayer/@edgeMappings[name='EntityReference']"/>
     </ownedDiagramElements>

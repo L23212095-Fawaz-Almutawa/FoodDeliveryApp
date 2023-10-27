@@ -314,7 +314,263 @@ UseCaseModel FoodDeliveryApp {
 		precondition:
 			true
 		postcondition:
+			if
+				(mu.oclIsUndefined() = false)
+			then
+				self.restaurantID = true and
+				self.restaurantOwnerID = true and
+				result = true
+			else
+				self.restaurantID = false and
+				result = false
+			endif
+	}
+
+	Contract UpdateMenuService::validateMenu(menuDetails : String) : Boolean {
+
+		precondition:
+			self.restaurantID = true and
+			self.restaurantOwnerID.oclIsUndefined() = false
+		postcondition:
+			if
+				self.newPrice = true
+			then
+				result = self.newPrice
+			else
+				result = 0
+			endif
+	}
+
+	Contract UpdateMenuService::saveMenu(menuDetails : String) : Boolean {
+
+		precondition:
+			self.newPrice = true and
+			self.newPrice.oclIsUndefined() = false
+		postcondition:
 			true
+	}
+
+	Contract UpdateMenuService::notifyCustomers(menuUpdateNotification : String) : Boolean {
+
+		precondition:
+			self.newPrice = true and
+			self.restaurantID = true and
+			self.restaurantOwnerID = true and
+			self.menuID = true
+		postcondition:
+			self.description = true
+	}
+
+	Contract TrackOrderProfilesService::receiveCutomerRequest(requestDetails : String) : Boolean {
+
+		definition:
+			to:TrackOrder = TrackOrder.allInstance()->any(t:TrackOrder | t.OrderID = orderID)
+
+		precondition:
+			true
+		postcondition:
+			if
+				(mu.oclIsUndefined() = false)
+			then
+				self.requestDetails = requestDetails and
+				result = true
+			else
+				result = false
+			endif
+	}
+
+	Contract TrackOrderProfilesService::processRequest(requestDetails : String) : Boolean {
+
+		precondition:
+			if
+				self.requestDetails = requestDetails and
+				self.requestDetails.oclIsUndefined() = false
+			then
+				result = true
+			endif
+		postcondition:
+			self.OrderID = true
+	}
+
+	Contract TrackOrderProfilesService::retrieveOrderInformation(orderID : String) : Boolean {
+
+		precondition:
+			if
+				self.OrderID = true and
+				self.OrderID.oclIsUndefined() = false
+			then
+				result = true
+			endif
+		postcondition:
+			self.newStatus = true
+	}
+
+	Contract TrackOrderProfilesService::updateOrderStatus(orderID : String, newStatus : String) : Boolean {
+
+		precondition:
+			self.OrderID = true
+		postcondition:
+			self.newStatus.oclIsUndefined() = false and
+			self.newStatus = true
+	}
+
+	Contract TrackOrderProfilesService::provideCustomerResponse(responseDetails : String) : Boolean {
+
+		precondition:
+			self.newStatus.oclIsUndefined() = false and
+			self.newStatus = true
+		postcondition:
+			self.orderDescription = responseDetails
+	}
+
+	Contract OrderRequestService::acceptOrder(orderID : String) : Boolean {
+
+		definition:
+			orre:Delivery = Delivery.allInstance()->any(re:Delivery | re.orderID)
+
+		precondition:
+			true
+		postcondition:
+			if
+				(orre.oclIsUndefined() = false)
+			then
+				self.ID = true and
+				self.orderID = orderID and
+				result = true
+			else
+				self.ID = false and
+				result = false
+			endif
+	}
+
+	Contract OrderRequestService::getDeliveryDetails(orderID : String) : Boolean {
+
+		precondition:
+			self.ID = true and
+			self.orderID.oclIsUndefined() = false
+		postcondition:
+			self.address = true
+	}
+
+	Contract OrderRequestService::navigate(destination : String) : Boolean {
+
+		precondition:
+			self.address = true
+		postcondition:
+			self.address = destination
+	}
+
+	Contract OrderRequestService::updateDeliveryStatus(orderID : String, status : String) : Boolean {
+
+		precondition:
+			self.address.oclIsUndefined() = false and
+			self.orderID = true
+		postcondition:
+			self.status = true and
+			self.status = status
+	}
+
+	Contract OrderRequestService::updateLocation(location : String) : Boolean {
+
+		precondition:
+			self.status.oclIsUndefined() = false and
+			self.status = true
+		postcondition:
+			true
+	}
+
+	Contract OrderRequestService::contactCustomer(phoneNumber : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			true
+	}
+
+	Contract PlaceOrderService::selectRestaurant(restaurantID : String) : Boolean {
+
+		definition:
+			po:Order = Order.allInstance()->any(o:Order | o.restaurantID)
+
+		precondition:
+			true
+		postcondition:
+			if
+				(po.oclIsUndefined() = false)
+			then
+				self.ID = true and
+				result = true
+			else
+				self.ID = false and
+				result = false
+			endif
+	}
+
+	Contract PlaceOrderService::browseMenu(restaurantID : String) : Boolean {
+
+		precondition:
+			self.restaurant.oclIsUndefined() = false and
+			self.ID = true
+		postcondition:
+			self.item = true and
+			self.quantity = true
+	}
+
+	Contract PlaceOrderService::addItemsToCart(item : String, quantity : String) : Boolean {
+
+		precondition:
+			self.item = true and
+			self.quantity = true
+		postcondition:
+			true
+	}
+
+	Contract PlaceOrderService::reviewCart() : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			self.OrderNumber = true
+	}
+
+	Contract PlaceOrderService::proceedToCheckout() : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			true
+	}
+
+	Contract PlaceOrderService::selectPaymentMethod(paymentMethod : String) : Boolean {
+
+		precondition:
+			self.OrderNumber = true
+		postcondition:
+			true
+	}
+
+	Contract PlaceOrderService::providePaymentDetails(paymentDetails : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			self.OrderNumber = paymentDetails
+	}
+
+	Contract PlaceOrderService::placeOrder(orderDetails : String, paymentDetails : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			true
+	}
+
+	Contract PlaceOrderService::confirmOrder(orderID : String) : Boolean {
+
+		precondition:
+			true
+		postcondition:
+			self.ID = orderID
 	}
 
 }
@@ -329,7 +585,8 @@ DomainModel FoodDeliveryApp {
 		Email : String
 		Username : String
 		Password : String
-	[Refer]
+
+		[Refer]
 		CustomertoCart : Cart Association
 		CustomertoReview : Review* Association
 		CustomertoOrder : Order* Association
@@ -342,7 +599,8 @@ DomainModel FoodDeliveryApp {
 		ID : Integer
 		Name : String
 		Phone : String
-	[Refer]
+
+		[Refer]
 		DeliveryDrivertoDelivery : Delivery* ! Association
 		DeliveryDrivertoReview : Review* Association
 	}
@@ -352,7 +610,8 @@ DomainModel FoodDeliveryApp {
 		Phone : String
 		Email : String
 		RestaurantID : Integer
-	[Refer]
+
+		[Refer]
 		RestaurantOwnertoRestaurant : Restaurant* Association
 	}
 
@@ -361,26 +620,30 @@ DomainModel FoodDeliveryApp {
 		Name : String
 		Email : String
 		Phone : String
-	[Refer]
+
+		[Refer]
 		CustomerServiceAgenttoContact : Contact* Association
 	}
 
 	Entity CashPayment {
 		Balance : Real
-	[Refer]
+
+		[Refer]
 		CashPaymenttoPayment : Payment Association
 	}
 
 	Entity CardPayment {
 		CardNumber : String
 		ExpirationDate : Date
-	[Refer]
+
+		[Refer]
 		CardPaymenttoPayment : Payment Association
 	}
 
 	Entity Payment {
 		AmountTendered : PaymentMethod[CASH|CARD]
-	[Refer]
+
+		[Refer]
 		PaymenttoCustomer : Customer ! Association
 		PaymenttoCashPayment : CashPayment ! Association
 		PaymenttoCardPayment : CardPayment ! Association
@@ -392,7 +655,8 @@ DomainModel FoodDeliveryApp {
 		Products : String *
 		Price : Real *
 		Total : Real
-	[Refer]
+
+		[Refer]
 		CarttoCustomer : Customer ! Association
 		CarttoItem : Item* Association
 	}
@@ -404,7 +668,8 @@ DomainModel FoodDeliveryApp {
 		DeliveryDriverID : Integer
 		Rating : Integer *
 		Comment : String
-	[Refer]
+
+		[Refer]
 		ReviewtoCustomer : Customer ! Association
 		ReviewtoRestaurant : Restaurant ! Association
 		ReviewtoDeliveryDriver : DeliveryDriver ! Association
@@ -417,9 +682,11 @@ DomainModel FoodDeliveryApp {
 		Status : String
 		CustomerID : Integer
 		OrderNumber : String
-	[Refer]
+
+		[Refer]
 		OrdertoCustomer : Customer ! Association
 		OrdertoRestaurant : Restaurant Association
+		OrdertoTackOrder : TrackOrder Association
 	}
 
 	Entity Delivery {
@@ -428,7 +695,8 @@ DomainModel FoodDeliveryApp {
 		Address : String
 		Description : String
 		DeliveryDriverID : Integer
-	[Refer]
+
+		[Refer]
 		DeliverytoDeliveryDriver : DeliveryDriver Association
 		DeliverytoCustomer : Customer Association
 	}
@@ -442,7 +710,8 @@ DomainModel FoodDeliveryApp {
 		Phone : String
 		Email : String
 		Address : String
-	[Refer]
+
+		[Refer]
 		RestauranttoUpdateMenu : UpdateMenu* Association
 		RestauranttoRestaurantOwner : RestaurantOwner ! Association
 		RestauranttoMenu : Menu ! Association
@@ -454,7 +723,8 @@ DomainModel FoodDeliveryApp {
 		ID : Integer
 		Name : String
 		Filter : FilterCriteria[DISTANCE|PRICE|PROMOTION|CUISINE|STATUS|RATING]
-	[Refer]
+
+		[Refer]
 		CategorytoItem : Item* Association
 	}
 
@@ -464,7 +734,8 @@ DomainModel FoodDeliveryApp {
 		Description : String
 		MenuID : Integer
 		NewPrice : Real
-	[Refer]
+
+		[Refer]
 		UpdateMenutoRestaurant : Restaurant ! Association
 	}
 
@@ -473,19 +744,21 @@ DomainModel FoodDeliveryApp {
 		MessagerID : Integer
 		MessageeID : Integer
 		Message : String
-	[Refer]
+
+		[Refer]
 		ContacttoCustomerServiceAgent : CustomerServiceAgent ! Association
 	}
 
 	Entity Guest {
-	[Refer]
+		[Refer]
 		GuesttoLogin : Login* ! Association
 	}
 
 	Entity Login {
 		Username : String
 		Password : String
-	[Refer]
+
+		[Refer]
 		LogintoGuest : Guest Association
 		LogintoCustomer : Customer Association
 	}
@@ -500,7 +773,8 @@ DomainModel FoodDeliveryApp {
 		Name : String
 		Customizable : Boolean
 		RestaurantID : Integer
-	[Refer]
+
+		[Refer]
 		ItemtoMenu : Menu* ! Association
 		ItemtoCategory : Category* ! Association
 		ItemtoCart : Cart ! Association
@@ -509,9 +783,23 @@ DomainModel FoodDeliveryApp {
 	Entity Menu {
 		ID : Integer
 		ItemID : String *
-	[Refer]
+
+		[Refer]
 		MenutoRestaurant : Restaurant Association
 		MenutoItem : Item* Association
+	}
+
+	Entity TrackOrder {
+		OrderID : Integer
+		DeliveryAddress : String
+		DeliveryDriverID : Integer
+		CustomerID : String
+		RestaurantID : String
+		OrderNumber : String
+		OrderDescription : String
+
+		[Refer]
+		TackOrdertoOrder : Order ! Association
 	}
 
 }

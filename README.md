@@ -12,14 +12,14 @@ The app basically resembles a food delivery appliation where a customer can sign
 - 11 Functional System Requirements. (With Basic and Alternative Flow)
 - 9 Nonfunctional System Requirements. (Without Basic and Alternative Flow)
 
-    ![App Screenshot]([https://via.placeholder.com/468x300?text=App+Screenshot+Here](https://pasteboard.co/Sb2w3Iks40Am.png))
+     <img width="829" alt="NaturalLanguage" src="https://github.com/L23212095-Fawaz-Almutawa/FoodDeliveryApp/assets/148682608/5459214b-44c3-42e9-bd40-59730cf63c24">
+
 ## UML Requirement Model Part:
 - 4 Actors in Use Case Diagram.
     - Customer
     - Customer Service Agent
     - Restaurant Manager
     - Delivery Driver
-    ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 - 13 Use Cases in Use Case Diagram (with Include and Extend relationships between use cases)
     - register
     - login
@@ -34,17 +34,28 @@ The app basically resembles a food delivery appliation where a customer can sign
     - reviews
     - updateMenu
     - orderRequest
-    ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+      
+         <img width="841" alt="image" src="https://github.com/L23212095-Fawaz-Almutawa/FoodDeliveryApp/assets/148682608/5cba8b60-2c24-4837-acdc-05bde6b8a83e">
+
 - 4 System Sequence Diagrams (SSDs) (1 for each Actor) with 24 Systm Operations in total
     - OrderRequestService
     - TrackOrderProfilesService
     - UpdateMenuService
     - PlaceOrderService
-    ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+      
+         <img width="341" alt="image" src="https://github.com/L23212095-Fawaz-Almutawa/FoodDeliveryApp/assets/148682608/2c8a79cf-854f-4fe6-a094-c33795d40975">
+
+      
 - 24 System Contracts (OCLs)
-    ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+  
+     <img width="531" alt="image" src="https://github.com/L23212095-Fawaz-Almutawa/FoodDeliveryApp/assets/148682608/bf22bea5-9649-4b26-856a-f6ac520cfb4e">
+
+  
 - 20 Concepetual Class Diagrams
-    ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+  
+     <img width="860" alt="image" src="https://github.com/L23212095-Fawaz-Almutawa/FoodDeliveryApp/assets/148682608/d6723499-54c9-47cd-b9c4-c2c8ba16cf33">
+
+  
 ## Limitations
 During the work in this project, difficulties have been encountered in sevaral parts in this software requirements analysis and validation project.
 
@@ -56,9 +67,11 @@ OCL Contracts, or Object Constraint Language Contracts, are essential for ensuri
 ## Limitations - Prototyping
 The absence of proper contract enforcement led to a multitude of errors within the prototype. Without the necessary checks and balances provided by OCL Contracts, the integrity and functionality of the system were compromised. Consequently, the prototype cannot be executed as intended, and its overall performance is severely hindered.
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+<img width="594" alt="image" src="https://github.com/L23212095-Fawaz-Almutawa/FoodDeliveryApp/assets/148682608/fa27e08f-a4cf-47ae-9c23-19ce2417dd8d">
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+<img width="703" alt="image" src="https://github.com/L23212095-Fawaz-Almutawa/FoodDeliveryApp/assets/148682608/25f5b4b2-a55f-4bb4-840c-9631935f9cef">
+
 
 
 ## Documentation

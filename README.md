@@ -12,7 +12,7 @@ The app basically resembles a food delivery appliation where a customer can sign
 - 11 Functional System Requirements. (With Basic and Alternative Flow)
 - 9 Nonfunctional System Requirements. (Without Basic and Alternative Flow)
 
-    ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+    ![App Screenshot]([https://via.placeholder.com/468x300?text=App+Screenshot+Here](https://pasteboard.co/Sb2w3Iks40Am.png))
 ## UML Requirement Model Part:
 - 4 Actors in Use Case Diagram.
     - Customer

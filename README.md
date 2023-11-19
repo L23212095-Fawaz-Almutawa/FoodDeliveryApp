@@ -72,6 +72,18 @@ The absence of proper contract enforcement led to a multitude of errors within t
 
 <img width="703" alt="image" src="https://github.com/L23212095-Fawaz-Almutawa/FoodDeliveryApp/assets/148682608/25f5b4b2-a55f-4bb4-840c-9631935f9cef">
 
+## LAB3 Extensions - Automated Architecture Design and Detailed Design
+
+<img width="1001" alt="Screenshot 2023-11-19 215951" src="https://github.com/L23212095-Fawaz-Almutawa/FoodDeliveryApp/assets/148682608/078305a4-3b3c-449d-8266-c48ceec47187">
+
+<img width="1004" alt="Screenshot 2023-11-19 215931" src="https://github.com/L23212095-Fawaz-Almutawa/FoodDeliveryApp/assets/148682608/899a25f7-7ff9-41c3-ae7a-c319fbfb90e5">
+
+<img width="546" alt="Screenshot 2023-11-19 215901" src="https://github.com/L23212095-Fawaz-Almutawa/FoodDeliveryApp/assets/148682608/6b0caa5f-ab55-4714-b46b-0fca80406171">
+
+<img width="1280" alt="Screenshot 2023-11-19 214148" src="https://github.com/L23212095-Fawaz-Almutawa/FoodDeliveryApp/assets/148682608/257aab72-b889-4fe0-93c9-13460718cee9">
+
+<img width="389" alt="Screenshot 2023-11-19 200103" src="https://github.com/L23212095-Fawaz-Almutawa/FoodDeliveryApp/assets/148682608/31402e24-bfd9-4362-8db4-f631f5906b88">
+
 
 
 ## Documentation

@@ -1,0 +1,393 @@
+MicroServiceModel FoodDeliveryApp {
+	MicroService CustomerService {
+		ProvidedInterface trackOrder{
+			[Operation]
+			trackOrder
+		}
+		ProvidedInterface cancelOrder{
+			[Operation]
+			cancelOrder
+		}
+		ProvidedInterface placeOrder{
+			[Operation]
+			placeOrder
+		}
+		ProvidedInterface browseMenu{
+			[Operation]
+			browseMenu
+		}
+		ProvidedInterface pay{
+			[Operation]
+			pay
+		}
+		ProvidedInterface login{
+			[Operation]
+			login
+		}
+		ProvidedInterface register{
+			[Operation]
+			register
+		}
+		ProvidedInterface manageRestaurant{
+			[Operation]
+			createRestaurant
+			queryRestaurant
+			updateRestaurant
+			modifyRestaurant
+		}
+		ProvidedInterface manageReview{
+			[Operation]
+			createReview
+			queryReview
+			updateReview
+			modifyReview
+		}
+		ProvidedInterface manageOrder{
+			[Operation]
+			createOrder
+			queryOrder
+			updateOrder
+			modifyOrder
+		}
+		ProvidedInterface manageCustomerServiceAgent{
+			[Operation]
+			createCustomerServiceAgent
+			queryCustomerServiceAgent
+			updateCustomerServiceAgent
+			modifyCustomerServiceAgent
+		}
+		ProvidedInterface manageCardPayment{
+			[Operation]
+			createCardPayment
+			queryCardPayment
+			updateCardPayment
+			modifyCardPayment
+		}
+		RequiredInterface manageCustomer
+		RequiredInterface manageTrackOrder
+		RequiredInterface managePayment
+		RequiredInterface manageDeliveryDriver
+		RequiredInterface manageUpdateMenu
+		RequiredInterface manageRestaurantOwner
+		RequiredInterface manageMenu
+		RequiredInterface manageContact
+		DomainModel CustomerService {
+			 Entity Order {
+				ID : Integer
+				OrderDate : Date
+				OrderDescription : String
+				Status : String
+				CustomerID : Integer
+				OrderNumber : String
+				[Refer]
+				OrdertoRestaurant : Restaurant  Association
+			}
+			 Entity CardPayment {
+				CardNumber : String
+				ExpirationDate : Date
+				[Refer]
+			}
+			 Entity Review {
+				ID : Integer
+				CustomerID : Integer
+				RestaurantID : Integer
+				DeliveryDriverID : Integer
+				Rating : Integer
+				Comment : String
+				[Refer]
+				ReviewtoRestaurant : Restaurant  Association
+			}
+			 Entity Restaurant {
+				ID : Integer
+				Name : String
+				Description : String
+				Cuisine : String
+				Status : Boolean
+				Phone : String
+				Email : String
+				Address : String
+				[Refer]
+				RestauranttoReview : Review  Association
+				RestauranttoOrder : Order  Association
+			}
+			 Entity CustomerServiceAgent {
+				ID : Integer
+				Name : String
+				Email : String
+				Phone : String
+				[Refer]
+			}
+		}
+	}
+	MicroService Customer_Service_AgentService {
+		ProvidedInterface trackOrderProfiles{
+			[Operation]
+			trackOrderProfiles
+		}
+		ProvidedInterface manageTrackOrder{
+			[Operation]
+			createTrackOrder
+			queryTrackOrder
+			updateTrackOrder
+			modifyTrackOrder
+		}
+		ProvidedInterface manageMenu{
+			[Operation]
+			createMenu
+			queryMenu
+			updateMenu
+			modifyMenu
+		}
+		ProvidedInterface manageContact{
+			[Operation]
+			createContact
+			queryContact
+			updateContact
+			modifyContact
+		}
+		ProvidedInterface manageGuest{
+			[Operation]
+			createGuest
+			queryGuest
+			updateGuest
+			modifyGuest
+		}
+		ProvidedInterface manageCategory{
+			[Operation]
+			createCategory
+			queryCategory
+			updateCategory
+			modifyCategory
+		}
+		RequiredInterface manageItem
+		RequiredInterface manageLogin
+		RequiredInterface manageCustomerServiceAgent
+		RequiredInterface manageOrder
+		RequiredInterface manageRestaurant
+		DomainModel Customer_Service_AgentService {
+			 Entity Category {
+				ID : Integer
+				Name : String
+				Filter : Integer
+				[Refer]
+			}
+			 Entity Guest {
+				[Refer]
+			}
+			 Entity Contact {
+				ID : Integer
+				MessagerID : Integer
+				MessageeID : Integer
+				Message : String
+				[Refer]
+			}
+			 Entity TrackOrder {
+				OrderID : Integer
+				DeliveryAddress : String
+				DeliveryDriverID : Integer
+				CustomerID : String
+				RestaurantID : String
+				OrderNumber : String
+				OrderDescription : String
+				[Refer]
+			}
+			 Entity Menu {
+				ID : Integer
+				ItemID : String
+				[Refer]
+			}
+		}
+	}
+	MicroService Delivery_DriverService {
+		ProvidedInterface orderRequest{
+			[Operation]
+			orderRequest
+		}
+		ProvidedInterface manageCustomer{
+			[Operation]
+			createCustomer
+			queryCustomer
+			updateCustomer
+			modifyCustomer
+		}
+		ProvidedInterface manageRestaurantOwner{
+			[Operation]
+			createRestaurantOwner
+			queryRestaurantOwner
+			updateRestaurantOwner
+			modifyRestaurantOwner
+		}
+		ProvidedInterface manageItem{
+			[Operation]
+			createItem
+			queryItem
+			updateItem
+			modifyItem
+		}
+		ProvidedInterface manageLogin{
+			[Operation]
+			createLogin
+			queryLogin
+			updateLogin
+			modifyLogin
+		}
+		ProvidedInterface manageDelivery{
+			[Operation]
+			createDelivery
+			queryDelivery
+			updateDelivery
+			modifyDelivery
+		}
+		RequiredInterface manageRestaurant
+		RequiredInterface manageCart
+		RequiredInterface manageReview
+		RequiredInterface manageOrder
+		RequiredInterface managePayment
+		RequiredInterface manageGuest
+		RequiredInterface manageMenu
+		RequiredInterface manageCategory
+		RequiredInterface manageDeliveryDriver
+		DomainModel Delivery_DriverService {
+			 Entity RestaurantOwner {
+				ID : Integer
+				Phone : String
+				Email : String
+				RestaurantID : Integer
+				[Refer]
+			}
+			 Entity Customer {
+				ID : Integer
+				Name : String
+				Address : String
+				Phone : String
+				Email : String
+				Username : String
+				Password : String
+				[Refer]
+				CustomertoDelivery : Delivery  Association
+				CustomertoLogin : Login  Association
+			}
+			 Entity Login {
+				Username : String
+				Password : String
+				[Refer]
+				LogintoCustomer : Customer  Association
+			}
+			 Entity Item {
+				ID : Integer
+				Description : String
+				Price : Real
+				Ingredients : String
+				Category : String
+				Promotion : Boolean
+				Name : String
+				Customizable : Boolean
+				RestaurantID : Integer
+				[Refer]
+			}
+			 Entity Delivery {
+				ID : Integer
+				CustomerID : Integer
+				Address : String
+				Description : String
+				DeliveryDriverID : Integer
+				[Refer]
+				DeliverytoCustomer : Customer  Association
+			}
+		}
+	}
+	MicroService Restaurant_ManagerService {
+		ProvidedInterface updateMenu{
+			[Operation]
+			updateMenu
+			CallChain updateMenu {
+				service Customer_Service_AgentService : Customer_Service_AgentService {
+					Message 1 {
+						operation manageMenu
+					}
+				}
+			}
+		}
+		ProvidedInterface reviews{
+			[Operation]
+			reviews
+		}
+		ProvidedInterface contact{
+			[Operation]
+			contact
+		}
+		ProvidedInterface showOrderDetails{
+			[Operation]
+			showOrderDetails
+		}
+		ProvidedInterface managePayment{
+			[Operation]
+			createPayment
+			queryPayment
+			updatePayment
+			modifyPayment
+		}
+		ProvidedInterface manageDeliveryDriver{
+			[Operation]
+			createDeliveryDriver
+			queryDeliveryDriver
+			updateDeliveryDriver
+			modifyDeliveryDriver
+		}
+		ProvidedInterface manageUpdateMenu{
+			[Operation]
+			createUpdateMenu
+			queryUpdateMenu
+			updateUpdateMenu
+			modifyUpdateMenu
+		}
+		ProvidedInterface manageCart{
+			[Operation]
+			createCart
+			queryCart
+			updateCart
+			modifyCart
+		}
+		RequiredInterface manageRestaurant
+		RequiredInterface manageDelivery
+		RequiredInterface manageReview
+		RequiredInterface manageCustomer
+		RequiredInterface manageCardPayment
+		RequiredInterface manageItem
+		RequiredInterface manageMenu
+		DomainModel Restaurant_ManagerService {
+			 Entity UpdateMenu {
+				RestaurantID : Integer
+				RestaurantOwnerID : Integer
+				Description : String
+				MenuID : Integer
+				NewPrice : Real
+				[Refer]
+			}
+			 Entity CashPayment {
+				Balance : Real
+				[Refer]
+				CashPaymenttoPayment : Payment  Association
+			}
+			 Entity DeliveryDriver {
+				ID : Integer
+				Name : String
+				Phone : String
+				[Refer]
+			}
+			 Entity Payment {
+				AmountTendered : Integer
+				[Refer]
+				PaymenttoCashPayment : CashPayment  Association
+			}
+			 Entity Cart {
+				ID : Integer
+				Quantity : Integer
+				Products : String
+				Price : Real
+				Total : Real
+				[Refer]
+			}
+		}
+	}
+}
